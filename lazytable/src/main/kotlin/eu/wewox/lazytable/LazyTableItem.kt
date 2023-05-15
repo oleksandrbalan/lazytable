@@ -29,6 +29,6 @@ internal fun LazyTableItem.toMinaBoxItem(
         y = dimensions.sumOfRows(0 until row),
         width = dimensions.sumOfColumns(column until column + columnsCount),
         height = dimensions.sumOfRows(row until row + rowsCount),
-        lockHorizontally = column < pinConfiguration.columns,
-        lockVertically = row < pinConfiguration.rows,
+        lockHorizontally = column < pinConfiguration.columns(row),
+        lockVertically = row < pinConfiguration.rows(column),
     )
