@@ -5,8 +5,8 @@ package eu.wewox.lazytable
  * Columns and rows are pinned from the beginning, then they are always displayed when user scrolls
  * in lazy table.
  *
- * @param columns The count of pinned columns for given row.
- * @param rows The count of pinned rows for given column.
+ * @property columns The count of pinned columns for given row.
+ * @property rows The count of pinned rows for given column.
  */
 public data class LazyTablePinConfiguration internal constructor(
     val columns: (row: Int) -> Int,
