@@ -1,12 +1,12 @@
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.oleksandrbalan/lazytable.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.oleksandrbalan/lazytable)
 
-<img align="right" width="128" src="https://github.com/oleksandrbalan/minabox/assets/20944869/d473fe40-3f12-4be8-96e5-ffcb4b7c4082">
+<img align="right" width="128" src="https://github.com/oleksandrbalan/lazytable/assets/20944869/829052fd-4fa8-4599-8980-9dcd7189e1c5">
 
 # Lazy Table
 
 Lazy table library for Jetpack Compose.
 
-Lazy table allows to display columns and rows of data on the two directional plane. It is build on the `MinaBox` (which is build on `LazyLayout`) and provides methods to register item(s) and handles scrolling on the plane.
+Lazy table allows to display columns and rows of data on the two directional plane. It is build on the [MinaBox](https://github.com/oleksandrbalan/minabox) (which is build on `LazyLayout`) and provides methods to register item(s) and handles scrolling on the plane.
 
 ## Usage
 
@@ -77,4 +77,13 @@ See Demo application and [examples](demo/src/main/kotlin/eu/wewox/lazytable/scre
 
 Simple table with items.
 
+https://github.com/oleksandrbalan/lazytable/assets/20944869/cb7831a5-fe3d-47b5-943b-8ffe442e00b0
+
 Advanced example with pinned columns and rows. 
+
+https://github.com/oleksandrbalan/lazytable/assets/20944869/4b25177c-7900-4934-a436-2771e3f49169
+
+If you need further customization options, check [MinaBox](https://github.com/oleksandrbalan/minabox) library.
+
+
+
