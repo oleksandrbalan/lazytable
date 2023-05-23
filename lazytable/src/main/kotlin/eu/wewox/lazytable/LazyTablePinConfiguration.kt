@@ -16,6 +16,17 @@ public data class LazyTablePinConfiguration internal constructor(
 /**
  * Creates configuration of pinned columns and rows.
  *
+ * @param columns The count of pinned columns.
+ * @param rows The count of pinned rows.
+ */
+public fun lazyTablePinConfiguration(
+    columns: Int = 0,
+    rows: Int = 0,
+): LazyTablePinConfiguration = LazyTablePinConfiguration({ columns }, { rows })
+
+/**
+ * Creates configuration of pinned columns and rows.
+ *
  * @param columns The count of pinned columns for given row.
  * @param rows The count of pinned rows for given column.
  */

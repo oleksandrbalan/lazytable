@@ -125,16 +125,12 @@ private fun dimensions(settings: Settings): LazyTableDimensions =
 
 private fun pinConfiguration(settings: Settings): LazyTablePinConfiguration =
     lazyTablePinConfiguration(
-        columns = { _ ->
-            when {
-                settings.pinName && settings.pinImage -> 2
-                settings.pinName -> 1
-                else -> 0
-            }
+        columns = when {
+            settings.pinName && settings.pinImage -> 2
+            settings.pinName -> 1
+            else -> 0
         },
-        rows = { _ ->
-            if (settings.showHeader) 1 else 0
-        }
+        rows = if (settings.showHeader) 1 else 0
     )
 
 @Suppress("ComplexMethod")

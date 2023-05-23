@@ -112,7 +112,7 @@ public object LazyTableDefaults {
      * By default nothing is pinned.
      */
     public fun pinConfiguration(): LazyTablePinConfiguration =
-        lazyTablePinConfiguration()
+        lazyTablePinConfiguration(columns = 0, rows = 0)
 }
 
 private val DefaultColumnSize = 96.dp

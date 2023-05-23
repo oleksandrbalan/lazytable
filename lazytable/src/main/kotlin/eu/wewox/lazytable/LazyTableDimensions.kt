@@ -99,12 +99,12 @@ internal fun LazyTableDimensions.roundToPx(
                     dimensions.columnsSize.size >= columns && dimensions.rowsSize.size >= rows
                 ) {
                     "Unable to get sizes for all columns and rows. " +
-                            "Ensure that both columns count and rows count is equal or greater " +
-                            "than number of columns and rows in the scope. " +
-                            "Columns count: ${dimensions.columnsSize.size}, " +
-                            "columns in items: $columns; " +
-                            "rows count: ${dimensions.rowsSize.size}, " +
-                            "rows in items: $rows."
+                        "Ensure that both columns count and rows count is equal or greater " +
+                        "than number of columns and rows in the scope. " +
+                        "Columns count: ${dimensions.columnsSize.size}, " +
+                        "columns in items: $columns; " +
+                        "rows count: ${dimensions.rowsSize.size}, " +
+                        "rows in items: $rows."
                 }
 
                 LazyTablePxDimensions(
