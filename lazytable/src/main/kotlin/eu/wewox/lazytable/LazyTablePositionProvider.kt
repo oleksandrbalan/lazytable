@@ -63,11 +63,14 @@ internal class LazyTablePositionProviderImpl(
             height = dimensions.sumOfRows(row until row + rowsCount).toInt(),
         )
 
-        val paddingStart = dimensions.sumOfColumns(0 until pinConfiguration.columns)
-        val paddingTop = dimensions.sumOfRows(0 until pinConfiguration.rows)
+        val columnPinConfiguration = pinConfiguration.columns(row)
+        val rowPinConfiguration = pinConfiguration.rows(column)
 
-        val lockedHorizontally = column < pinConfiguration.columns
-        val lockedVertically = row < pinConfiguration.rows
+        val paddingStart = dimensions.sumOfColumns(0 until columnPinConfiguration)
+        val paddingTop = dimensions.sumOfRows(0 until rowPinConfiguration)
+
+        val lockedHorizontally = column < columnPinConfiguration
+        val lockedVertically = row < rowPinConfiguration
 
         val offset = align(itemSize, alignment, paddingStart, paddingTop)
 

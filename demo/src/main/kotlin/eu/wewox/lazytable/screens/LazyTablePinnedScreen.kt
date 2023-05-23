@@ -130,7 +130,7 @@ private fun pinConfiguration(settings: Settings): LazyTablePinConfiguration =
             settings.pinName -> 1
             else -> 0
         },
-        rows = if (settings.showHeader) 1 else 0,
+        rows = if (settings.showHeader) 1 else 0
     )
 
 @Suppress("ComplexMethod")

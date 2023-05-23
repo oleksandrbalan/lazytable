@@ -81,8 +81,9 @@ private fun LazyTableScopeImpl.getItemsDimensions(): Pair<Int, Int> {
 }
 
 private fun LazyTableItem.getZIndex(pinConfiguration: LazyTablePinConfiguration): Float {
-    val pinnedColumn = column < pinConfiguration.columns
-    val pinnedRow = row < pinConfiguration.rows
+    val pinnedColumn = column < pinConfiguration.columns(row)
+    val pinnedRow = row < pinConfiguration.rows(column)
+
     return if (pinnedColumn && pinnedRow) {
         ZIndexPinnedCorner
     } else if (pinnedColumn || pinnedRow) {
@@ -111,7 +112,7 @@ public object LazyTableDefaults {
      * By default nothing is pinned.
      */
     public fun pinConfiguration(): LazyTablePinConfiguration =
-        lazyTablePinConfiguration()
+        lazyTablePinConfiguration(columns = 0, rows = 0)
 }
 
 private val DefaultColumnSize = 96.dp
