@@ -36,6 +36,17 @@ public sealed interface LazyTableDimensions {
 /**
  * Creates dynamic lazy table dimensions.
  *
+ * @param columnSize The size of each column.
+ * @param rowSize The size of each row.
+ * @see LazyTableDimensions.Dynamic
+ * @return The dimensions of [LazyTable].
+ */
+public fun lazyTableDimensions(columnSize: Dp, rowSize: Dp): LazyTableDimensions =
+    LazyTableDimensions.Dynamic({ columnSize }, { rowSize })
+
+/**
+ * Creates dynamic lazy table dimensions.
+ *
  * @param columnSize The lambda to provide the size of column based on its index.
  * @param rowSize The lambda to provide the size of row based on its index.
  * @see LazyTableDimensions.Dynamic
@@ -88,12 +99,12 @@ internal fun LazyTableDimensions.roundToPx(
                     dimensions.columnsSize.size >= columns && dimensions.rowsSize.size >= rows
                 ) {
                     "Unable to get sizes for all columns and rows. " +
-                        "Ensure that both columns count and rows count is equal or greater " +
-                        "than number of columns and rows in the scope. " +
-                        "Columns count: ${dimensions.columnsSize.size}, " +
-                        "columns in items: $columns; " +
-                        "rows count: ${dimensions.rowsSize.size}, " +
-                        "rows in items: $rows."
+                            "Ensure that both columns count and rows count is equal or greater " +
+                            "than number of columns and rows in the scope. " +
+                            "Columns count: ${dimensions.columnsSize.size}, " +
+                            "columns in items: $columns; " +
+                            "rows count: ${dimensions.rowsSize.size}, " +
+                            "rows in items: $rows."
                 }
 
                 LazyTablePxDimensions(
