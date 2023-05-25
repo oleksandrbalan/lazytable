@@ -1,6 +1,6 @@
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.oleksandrbalan/lazytable.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.oleksandrbalan/lazytable)
 
-<img align="right" width="128" src="https://github.com/oleksandrbalan/lazytable/assets/20944869/829052fd-4fa8-4599-8980-9dcd7189e1c5">
+<img align="right" width="128" src="https://github.com/oleksandrbalan/lazytable/assets/20944869/6f5eb021-78a7-4efe-84eb-5a79623d3185">
 
 # Lazy Table
 
@@ -77,11 +77,11 @@ See Demo application and [examples](demo/src/main/kotlin/eu/wewox/lazytable/scre
 
 Simple table with items.
 
-https://github.com/oleksandrbalan/lazytable/assets/20944869/cb7831a5-fe3d-47b5-943b-8ffe442e00b0
+https://github.com/oleksandrbalan/lazytable/assets/20944869/0277522f-b21a-4c93-b71f-9a1af2d079cc
 
 Advanced example with pinned columns and rows. 
 
-https://github.com/oleksandrbalan/lazytable/assets/20944869/4b25177c-7900-4934-a436-2771e3f49169
+https://github.com/oleksandrbalan/lazytable/assets/20944869/1a1c6bee-25cd-4cb5-b619-988fbe30554c
 
 If you need further customization options, check [MinaBox](https://github.com/oleksandrbalan/minabox) library.
 
