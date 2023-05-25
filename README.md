@@ -51,7 +51,7 @@ Lazy table also allows to specify how many columns / rows should be pinned and t
 
 It is also possible to observe on the scroll state and change it programmatically using an instance of the `LazyTableState`.
 
-```
+```kotlin
 val columns = 10
 val rows = 10
 LazyTable(
