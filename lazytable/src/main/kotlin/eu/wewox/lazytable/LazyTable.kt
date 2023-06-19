@@ -1,6 +1,7 @@
 package eu.wewox.lazytable
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
@@ -17,6 +18,8 @@ import kotlin.math.max
  * @param state The state which could be used to observe and change translation offset.
  * @param pinConfiguration The configuration of pinned columns and rows.
  * @param dimensions The dimensions of columns and rows.
+ * @param contentPadding A padding around the whole content. This will add padding for the content
+ * after it has been clipped, which is not possible via modifier param.
  * @param content The lambda block which describes the content. Inside this block you can use
  * [LazyTableScope.items] method to add items.
  */
@@ -26,6 +29,7 @@ public fun LazyTable(
     state: LazyTableState = rememberLazyTableState(),
     pinConfiguration: LazyTablePinConfiguration = LazyTableDefaults.pinConfiguration(),
     dimensions: LazyTableDimensions = LazyTableDefaults.dimensions(),
+    contentPadding: PaddingValues = PaddingValues(0.dp),
     content: LazyTableScope.() -> Unit
 ) {
     val scope = LazyTableScopeImpl().apply(content)
@@ -39,6 +43,7 @@ public fun LazyTable(
 
     MinaBox(
         state = state.minaBoxState,
+        contentPadding = contentPadding,
         modifier = modifier,
     ) {
         scope.intervals.forEach { interval ->
