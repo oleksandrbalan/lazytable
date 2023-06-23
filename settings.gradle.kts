@@ -17,3 +17,5 @@ dependencyResolutionManagement {
 rootProject.name = "LazyTable"
 include(":demo")
 include(":lazytable")
+include(":desktopdemo")
+include(":androiddemo")
