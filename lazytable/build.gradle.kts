@@ -16,7 +16,7 @@ kotlin {
 				api(compose.foundation)
 				api(compose.material3)
 
-				api(project(":minabox"))
+				api(libs.minabox)
 			}
 		}
 
@@ -40,6 +40,11 @@ android {
 	}
 	buildFeatures {
 		compose = true
+	}
+	kotlin {
+		android {
+			publishLibraryVariants("release", "debug")
+		}
 	}
 	composeOptions {
 		kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()

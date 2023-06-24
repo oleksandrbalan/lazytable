@@ -3,7 +3,7 @@ sdk-compile = "33"
 sdk-min = "21"
 sdk-target = "33"
 
-minabox = "1.2.0"
+minabox = "1.3.0-SNAPSHOT"
 
 compose-bom = "2023.06.00"
 compose-compiler = "1.4.6"
@@ -20,8 +20,8 @@ plugin-spotless = "6.5.1"
 plugin-mavenpublish = "0.21.0"
 
 java-jvmTarget = "17"
-java-sourceCompatibility = "17"
-java-targetCompatibility = "17"
+java-sourceCompatibility = "11"
+java-targetCompatibility = "11"
 org-jetbrains-kotlin-jvm = "1.8.20"
 
 [libraries]
