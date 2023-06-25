@@ -3,7 +3,7 @@ sdk-compile = "33"
 sdk-min = "21"
 sdk-target = "33"
 
-minabox = "1.1.0"
+minabox = "1.2.0"
 
 compose-bom = "2023.06.00"
 compose-compiler = "1.4.7"

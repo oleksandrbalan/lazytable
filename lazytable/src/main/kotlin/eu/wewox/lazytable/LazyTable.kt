@@ -20,6 +20,7 @@ import kotlin.math.max
  * @param dimensions The dimensions of columns and rows.
  * @param contentPadding A padding around the whole content. This will add padding for the content
  * after it has been clipped, which is not possible via modifier param.
+ * @param scrollDirection Determines which directions are allowed to scroll.
  * @param content The lambda block which describes the content. Inside this block you can use
  * [LazyTableScope.items] method to add items.
  */
@@ -30,6 +31,7 @@ public fun LazyTable(
     pinConfiguration: LazyTablePinConfiguration = LazyTableDefaults.pinConfiguration(),
     dimensions: LazyTableDimensions = LazyTableDefaults.dimensions(),
     contentPadding: PaddingValues = PaddingValues(0.dp),
+    scrollDirection: LazyTableScrollDirection = LazyTableScrollDirection.BOTH,
     content: LazyTableScope.() -> Unit
 ) {
     val scope = LazyTableScopeImpl().apply(content)
@@ -44,6 +46,7 @@ public fun LazyTable(
     MinaBox(
         state = state.minaBoxState,
         contentPadding = contentPadding,
+        scrollDirection = scrollDirection.toMinaBoxScrollDirection(),
         modifier = modifier,
     ) {
         scope.intervals.forEach { interval ->
