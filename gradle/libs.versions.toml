@@ -20,8 +20,8 @@ plugin-spotless = "6.5.1"
 plugin-mavenpublish = "0.21.0"
 
 java-jvmTarget = "17"
-java-sourceCompatibility = "11"
-java-targetCompatibility = "11"
+java-sourceCompatibility = "17"
+java-targetCompatibility = "17"
 org-jetbrains-kotlin-jvm = "1.8.20"
 
 [libraries]
