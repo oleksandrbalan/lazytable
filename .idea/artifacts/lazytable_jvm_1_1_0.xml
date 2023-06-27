@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="lazytable-jvm-1.1.0">
+    <output-path>$PROJECT_DIR$/lazytable/build/libs</output-path>
+    <root id="archive" name="lazytable-jvm-1.1.0.jar">
+      <element id="module-output" name="LazyTable.lazytable.jvmMain" />
+    </root>
+  </artifact>
+</component>
