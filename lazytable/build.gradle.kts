@@ -27,7 +27,7 @@ kotlin {
 }
 
 android {
-	namespace = "eu.wewox.minabox"
+	namespace = "eu.wewox.lazytable"
 
 	compileSdk = libs.versions.sdk.compile.get().toInt()
 
