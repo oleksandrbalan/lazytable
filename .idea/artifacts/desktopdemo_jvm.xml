@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="desktopdemo-jvm">
-    <output-path>$PROJECT_DIR$/desktopdemo/build/libs</output-path>
-    <root id="archive" name="desktopdemo-jvm.jar">
-      <element id="module-output" name="LazyTable.desktopdemo.jvmMain" />
-    </root>
-  </artifact>
-</component>
