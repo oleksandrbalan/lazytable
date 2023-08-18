@@ -3,10 +3,11 @@ plugins {
 	alias(libs.plugins.kotlin.multiplatform)
 	alias(libs.plugins.jetbrains.compose)
 	alias(libs.plugins.mavenpublish)
+	id("convention.jvm.toolchain")
 }
 
 kotlin {
-	android()
+	androidTarget()
 	jvm()
 
 	sourceSets {
@@ -34,15 +35,11 @@ android {
 	defaultConfig {
 		minSdk = libs.versions.sdk.min.get().toInt()
 	}
-	compileOptions {
-		sourceCompatibility = JavaVersion.toVersion(libs.versions.java.sourceCompatibility.get())
-		targetCompatibility = JavaVersion.toVersion(libs.versions.java.targetCompatibility.get())
-	}
 	buildFeatures {
 		compose = true
 	}
 	kotlin {
-		android {
+		androidTarget {
 			publishLibraryVariants("release", "debug")
 		}
 	}

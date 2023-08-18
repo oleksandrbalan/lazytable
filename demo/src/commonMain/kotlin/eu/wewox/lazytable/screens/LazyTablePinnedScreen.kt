@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package eu.wewox.lazytable.screens
 
 import androidx.compose.foundation.background
@@ -12,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
@@ -45,9 +42,16 @@ import java.util.Locale
  * Example how to setup pinned columns and rows.
  */
 @Composable
-fun LazyTablePinnedScreen() {
+fun LazyTablePinnedScreen(
+    onBackClick: () -> Unit,
+) {
     Scaffold(
-        topBar = { TopBar(Example.LazyTablePinned.label) }
+        topBar = {
+            TopBar(
+                title = Example.LazyTablePinned.label,
+                onBackClick = onBackClick
+            )
+        }
     ) { padding ->
         val columns = 11
         val pokemons = produceState(initialValue = emptyList<Pokemon>()) { value = pokemons() }

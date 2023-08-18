@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -23,11 +22,17 @@ import eu.wewox.lazytable.ui.components.TopBar
 /**
  * Basic lazy table usage.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LazyTableSimpleScreen() {
+fun LazyTableSimpleScreen(
+    onBackClick: () -> Unit,
+) {
     Scaffold(
-        topBar = { TopBar(Example.LazyTableSimple.label) }
+        topBar = {
+            TopBar(
+                title = Example.LazyTableSimple.label,
+                onBackClick = onBackClick
+            )
+        }
     ) { padding ->
         val columns = 10
         val rows = 30
