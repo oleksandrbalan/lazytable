@@ -11,9 +11,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
 
 rootProject.name = "LazyTable"
 include(":demo")
 include(":lazytable")
+include(":desktopdemo")
+include(":androiddemo")
