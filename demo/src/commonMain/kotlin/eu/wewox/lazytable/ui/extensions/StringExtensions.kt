@@ -9,5 +9,5 @@ import kotlin.math.roundToInt
 fun Float.formatToDecimals(decimals: Int = 1): String {
     val integerDigits = this.toInt()
     val floatDigits = ((this - integerDigits) * 10f.pow(decimals)).roundToInt()
-    return "${integerDigits}.${floatDigits}"
+    return "$integerDigits.$floatDigits"
 }
