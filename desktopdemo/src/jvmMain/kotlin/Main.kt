@@ -3,7 +3,10 @@ import androidx.compose.ui.window.application
 import eu.wewox.lazytable.App
 
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
+    Window(
+        onCloseRequest = ::exitApplication,
+        title = "LazyTable",
+    ) {
         App()
     }
 }
