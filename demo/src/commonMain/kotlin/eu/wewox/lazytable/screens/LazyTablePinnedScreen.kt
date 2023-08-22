@@ -1,5 +1,6 @@
 package eu.wewox.lazytable.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -24,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.seiko.imageloader.rememberImagePainter
 import eu.wewox.lazytable.Example
 import eu.wewox.lazytable.LazyTable
 import eu.wewox.lazytable.LazyTableDimensions
@@ -33,10 +35,9 @@ import eu.wewox.lazytable.data.Pokemon
 import eu.wewox.lazytable.data.pokemons
 import eu.wewox.lazytable.lazyTableDimensions
 import eu.wewox.lazytable.lazyTablePinConfiguration
-import eu.wewox.lazytable.ui.components.AsyncImage
 import eu.wewox.lazytable.ui.components.TopBar
+import eu.wewox.lazytable.ui.extensions.formatToDecimals
 import eu.wewox.lazytable.ui.theme.SpacingMedium
-import java.util.Locale
 
 /**
  * Example how to setup pinned columns and rows.
@@ -147,8 +148,8 @@ private fun Cell(
         0 -> pokemon.name
         1 -> "" // Second column is reserved for an image
         2 -> pokemon.number
-        3 -> String.format(Locale.getDefault(), "%.1f", pokemon.height)
-        4 -> String.format(Locale.getDefault(), "%.1f", pokemon.weight)
+        3 -> pokemon.height.formatToDecimals()
+        4 -> pokemon.weight.formatToDecimals()
         5 -> pokemon.stats.health.toString()
         6 -> pokemon.stats.attack.toString()
         7 -> pokemon.stats.defence.toString()
@@ -168,8 +169,8 @@ private fun Cell(
             Text(text = content)
         }
         if (column == 1) {
-            AsyncImage(
-                model = pokemon.imageUrl,
+            Image(
+                painter = rememberImagePainter(pokemon.imageUrl),
                 contentDescription = null,
             )
         }

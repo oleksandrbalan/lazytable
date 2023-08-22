@@ -12,7 +12,6 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import java.util.Locale
 
 /**
  * Pokemon domain model.
@@ -47,7 +46,7 @@ suspend fun pokemons(range: IntRange = 1..30): List<Pokemon> = range.map { id ->
         .let { dto ->
             Pokemon(
                 id = id,
-                number = String.format(Locale.getDefault(), "#%04d", id),
+                number = pokemonNumber(id),
                 name = dto.name,
                 height = dto.height.toFloat() * 10, // convert to CM
                 weight = dto.weight * 0.01f, // convert to KG
@@ -76,4 +75,11 @@ internal val ktorHttpClient = HttpClient {
     install(DefaultRequest) {
         header(HttpHeaders.ContentType, ContentType.Application.Json)
     }
+}
+
+private fun pokemonNumber(id: Int): String {
+    val number = id.toString()
+    val zeroes = (4 - number.length).coerceAtLeast(0)
+    val prefix = List(zeroes) { "0" }.joinToString(separator = "")
+    return "#$prefix$number"
 }

@@ -4,9 +4,13 @@
 
 # Lazy Table
 
-Lazy table library for Jetpack Compose.
+Lazy table library for Compose UI.
 
 Lazy table allows to display columns and rows of data on the two directional plane. It is build on the [MinaBox](https://github.com/oleksandrbalan/minabox) (which is build on `LazyLayout`) and provides methods to register item(s) and handles scrolling on the plane.
+
+## Multiplatform
+
+Library supports [Android](https://developer.android.com/jetpack/compose), [iOS](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme) and [Desktop](https://github.com/JetBrains/compose-multiplatform-desktop-template/#readme) (Windows, MacOS, Linux) targets.
 
 ## Usage
 
@@ -71,7 +75,7 @@ LazyTable(
 }
 ```
 
-See Demo application and [examples](demo/src/main/kotlin/eu/wewox/lazytable/screens) for more usage examples.
+See Demo application and [examples](demo/src/commonMain/kotlin/eu/wewox/lazytable/screens) for more usage examples.
 
 ## Examples
 
@@ -84,6 +88,3 @@ Advanced example with pinned columns and rows.
 https://github.com/oleksandrbalan/lazytable/assets/20944869/1a1c6bee-25cd-4cb5-b619-988fbe30554c
 
 If you need further customization options, check [MinaBox](https://github.com/oleksandrbalan/minabox) library.
-
-
-
