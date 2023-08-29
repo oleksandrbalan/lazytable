@@ -15,3 +15,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+iosdemo/Podfile.lock
+iosdemo/Pods/*
+iosdemo/iosdemo.xcworkspace/*
+iosdemo/iosdemo.xcodeproj/*
+!iosdemo/iosdemo.xcodeproj/project.pbxproj
+demo/shared.podspec
