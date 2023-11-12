@@ -14,6 +14,12 @@ plugins {
     alias(libs.plugins.mavenpublish)
 }
 
+/*allprojects {
+    repositories {
+        maven("https://jitpack.io")
+    }
+}*/
+
 configure(subprojects) {
     apply<DetektPlugin>()
     apply<SpotlessPlugin>()

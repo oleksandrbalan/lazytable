@@ -4,6 +4,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven("https://jitpack.io")
     }
 }
 
@@ -17,8 +18,10 @@ dependencyResolutionManagement {
         mavenCentral()
         maven("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
         mavenLocal()
+        maven("https://jitpack.io")
     }
 }
+
 
 rootProject.name = "LazyTable"
 include(":demo")

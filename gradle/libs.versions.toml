@@ -3,7 +3,7 @@ sdk-compile = "34"
 sdk-min = "21"
 sdk-target = "34"
 
-minabox = "1.8.0-beta01"
+minabox = "1.8.0-feinbergos"
 
 # Must be updated along with compose-multiplatform
 compose-bom = "2024.09.00"
