@@ -8,8 +8,8 @@ minabox = "1.6.0"
 # Must be updated along with plugin-compose-jetbrains
 compose-bom = "2023.10.01"
 compose-compiler = "1.5.4"
-accompanist = "0.32.0"
 activity-compose = "1.8.0"
+core-splashscreen = "1.0.1"
 image-loader = "1.7.1"
 ktor = "2.3.6"
 ktx-serialization = "1.6.0"
@@ -31,7 +31,7 @@ compose-ui = { module = "androidx.compose.ui:ui" }
 compose-uitooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-uitoolingpreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-activitycompose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
-accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
 image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "image-loader" }
 ktor = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
