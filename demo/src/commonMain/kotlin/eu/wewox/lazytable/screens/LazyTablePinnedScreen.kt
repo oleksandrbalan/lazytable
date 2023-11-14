@@ -1,6 +1,5 @@
 package eu.wewox.lazytable.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -25,7 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.seiko.imageloader.rememberImagePainter
+import com.seiko.imageloader.ui.AutoSizeImage
 import eu.wewox.lazytable.Example
 import eu.wewox.lazytable.LazyTable
 import eu.wewox.lazytable.LazyTableDimensions
@@ -169,8 +168,8 @@ private fun Cell(
             Text(text = content)
         }
         if (column == 1) {
-            Image(
-                painter = rememberImagePainter(pokemon.imageUrl),
+            AutoSizeImage(
+                url = pokemon.imageUrl,
                 contentDescription = null,
             )
         }
