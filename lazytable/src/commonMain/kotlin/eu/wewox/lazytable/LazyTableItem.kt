@@ -22,13 +22,22 @@ public class LazyTableItem(
  */
 internal fun LazyTableItem.toMinaBoxItem(
     pinConfiguration: LazyTablePinConfiguration,
-    dimensions: LazyTablePxDimensions
+    dimensions: LazyTablePxDimensions,
+    tableHeight: Float,
 ): MinaBoxItem =
     MinaBoxItem(
         x = dimensions.sumOfColumns(0 until column),
-        y = dimensions.sumOfRows(0 until row),
+        y = if (pinConfiguration.footer && row == dimensions.rowsSize.size - 1) {
+            tableHeight - dimensions.rowsSize[dimensions.rowsSize.size - 1]
+        } else {
+            dimensions.sumOfRows(0 until row)
+        },
         width = dimensions.sumOfColumns(column until column + columnsCount),
         height = dimensions.sumOfRows(row until row + rowsCount),
         lockHorizontally = column < pinConfiguration.columns(row),
-        lockVertically = row < pinConfiguration.rows(column),
+        lockVertically = if (pinConfiguration.footer && row == dimensions.rowsSize.size - 1) {
+            true
+        } else {
+            row < pinConfiguration.rows(column)
+        },
     )

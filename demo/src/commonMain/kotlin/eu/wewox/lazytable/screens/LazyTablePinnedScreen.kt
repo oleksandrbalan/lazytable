@@ -134,7 +134,8 @@ private fun pinConfiguration(settings: Settings): LazyTablePinConfiguration =
             settings.pinName -> 1
             else -> 0
         },
-        rows = if (settings.showHeader) 1 else 0
+        rows = if (settings.showHeader) 1 else 0,
+        footer = settings.showFooter,
     )
 
 @Suppress("ComplexMethod")
@@ -240,6 +241,12 @@ private fun Settings(
     )
 
     SettingsRow(
+        text = "Show footer",
+        value = settings.showFooter,
+        onChange = { onChange(settings.copy(showFooter = it)) }
+    )
+
+    SettingsRow(
         text = "Pin name",
         value = settings.pinName,
         onChange = {
@@ -260,6 +267,7 @@ private fun Settings(
 
 private data class Settings(
     val showHeader: Boolean = true,
+    val showFooter: Boolean = true,
     val pinName: Boolean = false,
     val pinImage: Boolean = false,
 )

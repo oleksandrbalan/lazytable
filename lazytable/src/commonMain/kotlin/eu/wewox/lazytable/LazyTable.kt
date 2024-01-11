@@ -4,11 +4,15 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import eu.wewox.minabox.MinaBox
+import eu.wewox.minabox.MinaBoxItem
 import kotlin.math.max
 
 /**
@@ -41,6 +45,7 @@ public fun LazyTable(
     val density = LocalDensity.current
     val (columnsCount, rowsCount) = scope.getItemsDimensions()
     val dimensionsPx = dimensions.roundToPx(columnsCount, rowsCount, density)
+    val tableHeight = remember { mutableStateOf(0f) }
 
     state.dimensions = dimensionsPx
     state.pinConfiguration = pinConfiguration
@@ -49,14 +54,16 @@ public fun LazyTable(
         state = state.minaBoxState,
         contentPadding = contentPadding,
         scrollDirection = scrollDirection.toMinaBoxScrollDirection(),
-        modifier = modifier,
+        modifier = modifier.onSizeChanged {
+            tableHeight.value = it.height.toFloat()
+        },
     ) {
         scope.intervals.forEach { interval ->
             items(
                 count = interval.size,
                 layoutInfo = {
                     val info = interval.value.layoutInfo(it)
-                    info.toMinaBoxItem(pinConfiguration, dimensionsPx)
+                    info.toMinaBoxItem(pinConfiguration, dimensionsPx, tableHeight.value)
                 },
                 key = interval.value.key,
                 contentType = interval.value.contentType,
@@ -70,6 +77,23 @@ public fun LazyTable(
                         interval.value.itemContent.invoke(it)
                     }
                 },
+            )
+        }
+
+        if (pinConfiguration.footer) {
+            // Empty content to push the second to last row up above the footer.
+            items(
+                count = 1,
+                layoutInfo = {
+                    MinaBoxItem(
+                        x = 0f,
+                        y = dimensionsPx.rowsSize.sum() - dimensionsPx.rowsSize.last(),
+                        width = dimensionsPx.columnsSize.last(),
+                        height = dimensionsPx.rowsSize.last(),
+                    )
+                },
+                itemContent = {
+                }
             )
         }
     }
@@ -94,10 +118,15 @@ private fun LazyTableScopeImpl.getItemsDimensions(): Pair<Int, Int> {
 private fun LazyTableItem.getZIndex(pinConfiguration: LazyTablePinConfiguration): Float {
     val pinnedColumn = column < pinConfiguration.columns(row)
     val pinnedRow = row < pinConfiguration.rows(column)
+    val pinnedFooter = rowsCount.minus(row) >= 1 && pinConfiguration.footer // Last row and configuration footer is set
 
     return if (pinnedColumn && pinnedRow) {
         ZIndexPinnedCorner
-    } else if (pinnedColumn || pinnedRow) {
+    }
+    else if (pinnedColumn && pinnedFooter) {
+        ZIndexPinnedCorner
+    }
+    else if (pinnedColumn || pinnedRow || pinnedFooter) {
         ZIndexPinnedLine
     } else {
         ZIndexItem
