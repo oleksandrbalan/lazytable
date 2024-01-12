@@ -14,6 +14,7 @@ import androidx.compose.ui.zIndex
 import eu.wewox.minabox.MinaBox
 import eu.wewox.minabox.MinaBoxItem
 import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Lazy layout to display columns and rows of data on the two directional plane.
@@ -58,12 +59,14 @@ public fun LazyTable(
             tableHeight.value = it.height.toFloat()
         },
     ) {
+        val newTableHeight = dimensionsPx.rowsSize.sum()
+
         scope.intervals.forEach { interval ->
             items(
                 count = interval.size,
                 layoutInfo = {
                     val info = interval.value.layoutInfo(it)
-                    info.toMinaBoxItem(pinConfiguration, dimensionsPx, tableHeight.value)
+                    info.toMinaBoxItem(pinConfiguration, dimensionsPx, min(tableHeight.value, newTableHeight))
                 },
                 key = interval.value.key,
                 contentType = interval.value.contentType,
