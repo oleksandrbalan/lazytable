@@ -59,14 +59,14 @@ public fun LazyTable(
             tableHeight.value = it.height.toFloat()
         },
     ) {
-        val newTableHeight = dimensionsPx.rowsSize.sum()
+        val minTableHeight = min(tableHeight.value, dimensionsPx.rowsSize.sum())
 
         scope.intervals.forEach { interval ->
             items(
                 count = interval.size,
                 layoutInfo = {
                     val info = interval.value.layoutInfo(it)
-                    info.toMinaBoxItem(pinConfiguration, dimensionsPx, min(tableHeight.value, newTableHeight))
+                    info.toMinaBoxItem(pinConfiguration, dimensionsPx, minTableHeight)
                 },
                 key = interval.value.key,
                 contentType = interval.value.contentType,
@@ -125,11 +125,9 @@ private fun LazyTableItem.getZIndex(pinConfiguration: LazyTablePinConfiguration)
 
     return if (pinnedColumn && pinnedRow) {
         ZIndexPinnedCorner
-    }
-    else if (pinnedColumn && pinnedFooter) {
-        ZIndexPinnedCorner
-    }
-    else if (pinnedColumn || pinnedRow || pinnedFooter) {
+    } else if (pinnedColumn && pinnedFooter) {
+        ZIndexPinnedFooter
+    } else if (pinnedColumn || pinnedRow || pinnedFooter) {
         ZIndexPinnedLine
     } else {
         ZIndexItem
@@ -161,6 +159,7 @@ public object LazyTableDefaults {
 private val DefaultColumnSize = 96.dp
 private val DefaultRowSize = 48.dp
 
+private const val ZIndexPinnedFooter = 3f
 private const val ZIndexPinnedCorner = 2f
 private const val ZIndexPinnedLine = 1f
 private const val ZIndexItem = 0f

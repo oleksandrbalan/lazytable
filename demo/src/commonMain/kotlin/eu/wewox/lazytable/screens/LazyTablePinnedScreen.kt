@@ -267,7 +267,7 @@ private fun Settings(
 
 private data class Settings(
     val showHeader: Boolean = true,
-    val showFooter: Boolean = true,
+    val showFooter: Boolean = false,
     val pinName: Boolean = false,
     val pinImage: Boolean = false,
 )

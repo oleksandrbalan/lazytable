@@ -20,7 +20,7 @@ public data class LazyTablePinConfiguration internal constructor(
  *
  * @param columns The count of pinned columns.
  * @param rows The count of pinned rows.
- * @property footer The flag for showing a pinned footer.
+ * @param footer The flag for showing a pinned footer.
  */
 public fun lazyTablePinConfiguration(
     columns: Int = 0,
@@ -33,7 +33,7 @@ public fun lazyTablePinConfiguration(
  *
  * @param columns The count of pinned columns for given row.
  * @param rows The count of pinned rows for given column.
- * @property footer The flag for showing a pinned footer.
+ * @param footer The flag for showing a pinned footer.
  */
 public fun lazyTablePinConfiguration(
     columns: (row: Int) -> Int = { 0 },
