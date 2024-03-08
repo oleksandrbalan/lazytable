@@ -10,7 +10,7 @@ Lazy table allows to display columns and rows of data on the two directional pla
 
 ## Multiplatform
 
-Library supports [Android](https://developer.android.com/jetpack/compose), [iOS](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme) and [Desktop](https://github.com/JetBrains/compose-multiplatform-desktop-template/#readme) (Windows, MacOS, Linux) targets.
+Library supports [Android](https://developer.android.com/jetpack/compose), [iOS](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme), [Desktop](https://github.com/JetBrains/compose-multiplatform-desktop-template/#readme) (Windows, MacOS, Linux) and [Wasm](https://github.com/Kotlin/kotlin-wasm-examples/blob/main/compose-example/README.md#compose-multiplatform-for-web) targets.
 
 ## Usage
 
