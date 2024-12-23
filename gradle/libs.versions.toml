@@ -6,17 +6,17 @@ sdk-target = "34"
 minabox = "1.8.0-feinbergos"
 
 # Must be updated along with compose-multiplatform
-compose-bom = "2024.09.00"
-compose-multiplatform = "1.7.0-beta01"
-compose-compiler = "1.5.10"
-activity-compose = "1.9.2"
+compose-bom = "2024.12.01"
+compose-multiplatform = "1.7.0"
+compose-compiler = "1.5.4"
+activity-compose = "1.8.0"
 core-splashscreen = "1.0.1"
 image-loader = "1.7.8"
 ktor = "3.0.0-wasm2"
 ktx-serialization = "1.6.2"
 
-plugin-android-gradle = "8.6.0"
-plugin-kotlin = "1.9.22"
+plugin-android-gradle = "8.7.3"
+plugin-kotlin = "2.1.0"
 plugin-detekt = "1.21.0"
 plugin-spotless = "6.5.1"
 plugin-mavenpublish = "0.25.3"
@@ -45,6 +45,7 @@ ktx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json
 [plugins]
 android-application = { id = "com.android.application", version.ref = "plugin-android-gradle" }
 android-library = { id = "com.android.library", version.ref = "plugin-android-gradle" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "plugin-kotlin" }
 jetbrains-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "plugin-kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "plugin-kotlin" }
