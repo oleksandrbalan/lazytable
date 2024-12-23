@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.serialization)
     id("convention.jvm.toolchain")
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
