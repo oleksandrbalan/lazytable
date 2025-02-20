@@ -10,7 +10,7 @@ compose-bom = "2025.01.00"
 compose-multiplatform = "1.7.3"
 activity-compose = "1.10.0"
 core-splashscreen = "1.0.1"
-image-loader = "1.10.0"
+coil = "3.1.0"
 ktor = "3.1.0"
 ktx-serialization = "1.8.0"
 
@@ -31,7 +31,8 @@ compose-uitooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-uitoolingpreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-activitycompose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
-image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "image-loader" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-network-ktor3 = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 ktor = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 ktor-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }

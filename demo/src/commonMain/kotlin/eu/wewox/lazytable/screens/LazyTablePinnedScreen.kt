@@ -24,7 +24,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.seiko.imageloader.ui.AutoSizeImage
+import coil3.compose.AsyncImage
+import coil3.compose.LocalPlatformContext
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 import eu.wewox.lazytable.Example
 import eu.wewox.lazytable.LazyTable
 import eu.wewox.lazytable.LazyTableDimensions
@@ -169,8 +172,11 @@ private fun Cell(
             Text(text = content)
         }
         if (column == 1) {
-            AutoSizeImage(
-                url = pokemon.imageUrl,
+            AsyncImage(
+                model = ImageRequest.Builder(LocalPlatformContext.current)
+                    .data(pokemon.imageUrl)
+                    .crossfade(true)
+                    .build(),
                 contentDescription = null,
             )
         }

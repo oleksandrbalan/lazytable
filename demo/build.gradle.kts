@@ -51,7 +51,8 @@ kotlin {
                 implementation(libs.ktor.serialization.json)
                 implementation(libs.ktx.serialization)
 
-                implementation(libs.image.loader)
+                implementation(libs.coil.compose)
+                implementation(libs.coil.network.ktor3)
             }
         }
 
