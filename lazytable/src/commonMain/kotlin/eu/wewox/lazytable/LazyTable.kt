@@ -34,7 +34,7 @@ import kotlin.math.min
 @Composable
 public fun LazyTable(
     modifier: Modifier = Modifier,
-    state: LazyTableState = rememberLazyTableState(),
+    state: LazyTableState = rememberSaveableLazyTableState(),
     pinConfiguration: LazyTablePinConfiguration = LazyTableDefaults.pinConfiguration(),
     dimensions: LazyTableDimensions = LazyTableDefaults.dimensions(),
     contentPadding: PaddingValues = PaddingValues(0.dp),
