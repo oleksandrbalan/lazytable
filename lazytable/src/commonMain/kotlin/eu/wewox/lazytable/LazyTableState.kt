@@ -3,6 +3,9 @@ package eu.wewox.lazytable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.Saver
+import androidx.compose.runtime.saveable.listSaver
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.geometry.Offset
 import eu.wewox.minabox.MinaBoxState
@@ -13,11 +16,34 @@ import eu.wewox.minabox.MinaBoxState
  * @param initialOffset The lambda to provide initial offset on the plane.
  * @return Instance of the [LazyTableState].
  */
+@Deprecated(
+    message = "Use rememberSaveableLazyTableState() which uses rememberSaveable API.",
+    replaceWith = ReplaceWith(
+        "rememberSaveableLazyTableState(initialOffset)",
+        "eu.wewox.lazytable.rememberSaveableLazyTableState"
+    )
+)
 @Composable
 public fun rememberLazyTableState(
     initialOffset: LazyTablePositionProvider.() -> Offset = { Offset.Zero }
 ): LazyTableState {
     return remember { LazyTableState(initialOffset) }
+}
+
+/**
+ * Creates a [LazyTableState] that is remembered across compositions and saved across activity or process recreation.
+ *
+ * @param initialOffset The lambda to provide initial offset on the plane.
+ * @return Instance of the [LazyTableState].
+ */
+@Composable
+public fun rememberSaveableLazyTableState(
+    initialOffset: LazyTablePositionProvider.() -> Offset = { Offset.Zero },
+): LazyTableState {
+    return rememberSaveable(
+        saver = LazyTableState.Saver(),
+        init = { LazyTableState(initialOffset) }
+    )
 }
 
 /**
@@ -111,4 +137,26 @@ public class LazyTableState(
             currentX = translateX,
             currentY = translateY,
         )
+
+    internal companion object {
+
+        /**
+         * Creates a [Saver] that can save and restore a [LazyTableState].
+         *
+         * @return A [Saver] instance for saving and restoring [LazyTableState].
+         */
+        fun Saver(): Saver<LazyTableState, *> = listSaver(
+            save = {
+                listOf(
+                    it.minaBoxState.translate?.x ?: 0f,
+                    it.minaBoxState.translate?.y ?: 0f,
+                )
+            },
+            restore = {
+                LazyTableState {
+                    Offset(it[0], it[1])
+                }
+            }
+        )
+    }
 }

@@ -19,7 +19,7 @@ import eu.wewox.lazytable.Example
 import eu.wewox.lazytable.LazyTable
 import eu.wewox.lazytable.LazyTableItem
 import eu.wewox.lazytable.data.createCells
-import eu.wewox.lazytable.rememberLazyTableState
+import eu.wewox.lazytable.rememberSaveableLazyTableState
 import eu.wewox.lazytable.ui.components.TopBar
 import kotlinx.coroutines.launch
 
@@ -43,7 +43,7 @@ fun LazyTableStateScreen(
         val cells = remember { createCells(columns, rows) }
 
         val scope = rememberCoroutineScope()
-        val state = rememberLazyTableState()
+        val state = rememberSaveableLazyTableState()
 
         LazyTable(
             state = state,
