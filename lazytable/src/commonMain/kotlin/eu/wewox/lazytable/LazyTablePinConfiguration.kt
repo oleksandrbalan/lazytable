@@ -9,6 +9,7 @@ package eu.wewox.lazytable
  * @property rows The count of pinned rows for given column.
  * @property footer The flag for showing a pinned footer.
  */
+@ConsistentCopyVisibility
 public data class LazyTablePinConfiguration internal constructor(
     val columns: (row: Int) -> Int,
     val rows: (column: Int) -> Int,

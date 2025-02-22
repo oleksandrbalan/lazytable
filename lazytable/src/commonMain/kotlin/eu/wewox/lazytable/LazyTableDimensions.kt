@@ -15,6 +15,7 @@ public sealed interface LazyTableDimensions {
      * @property columnsSize The list of column sizes (widths).
      * @property rowsSize The list of row sizes (heights).
      */
+    @ConsistentCopyVisibility
     public data class Exact internal constructor(
         public val columnsSize: List<Dp>,
         public val rowsSize: List<Dp>,
@@ -27,6 +28,7 @@ public sealed interface LazyTableDimensions {
      * @property columnSize The lambda to provide the size of column based on its index.
      * @property rowSize The lambda to provide the size of row based on its index.
      */
+    @ConsistentCopyVisibility
     public data class Dynamic internal constructor(
         public val columnSize: (Int) -> Dp,
         public val rowSize: (Int) -> Dp,

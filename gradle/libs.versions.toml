@@ -3,7 +3,7 @@ sdk-compile = "35"
 sdk-min = "21"
 sdk-target = "35"
 
-minabox = "1.9.0"
+minabox = "1.10.0"
 
 # Must be updated along with compose-multiplatform
 compose-bom = "2025.01.00"
